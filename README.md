@@ -1,21 +1,26 @@
 ## Instructions
 
-1. Deploy broker messages:
+1. Install python dependencies
+```sh
+pip install -r requirements.txt
+```
+
+2. Deploy broker message:
 ```sh
 docker-compose up
 ```
 
-2. Deploy workers/consumer tasks
+3. Deploy workers/consumer tasks
 ```sh
 # which process default tasks and important ones
-celery --app=src.consumer worker -n default -Q q0,q1 -c 1
+celery --app=src.consumer worker -n default -Q default,important -c 1
 
 # Only important task
-celery --app=src.consumer worker -n priority -Q q1 -c 1
+celery --app=src.consumer worker -n important -Q important -c 1
 ```
 
-3. Run producer task and simulate whatever scenario
+4. Run producer task and simulate whatever scenario
 ```sh
-python producer.py d    # default task
-python producer.py i    # important task
+python producer.py d    # to send default task
+python producer.py i    # to send important task
 ```
