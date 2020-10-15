@@ -1,11 +1,14 @@
 import sys
+from time import time
 
 from config import celery_app
 
+t = lambda: str(round(time() * 1000))
+
 if len(sys.argv) > 0 and sys.argv[1] == 'd':
-    t = {'msg': 't2', 'queue': 'default', 'task_name': 'default', 'priority': 1}
+    t = {'msg': t(), 'queue': 'default', 'task_name': 'default', 'priority': 1}
 elif len(sys.argv) > 0 and sys.argv[1] == 'i':
-    t = {'msg': 't3', 'queue': 'important', 'task_name': 'important', 'priority': 5}
+    t = {'msg': t(), 'queue': 'important', 'task_name': 'important', 'priority': 5}
 else:
     raise Exception('Non arguments')
 

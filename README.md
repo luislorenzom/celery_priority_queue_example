@@ -11,3 +11,5 @@ docker-compose up
 ```
 
 3. Follow the examples READMEs
+* **balanced\_queues**: to distribute the task between several queues applying arrival strategies 
+* **task\_priority\_queues**: to apply task priority levels on each task to sort the queues and distribute the work
