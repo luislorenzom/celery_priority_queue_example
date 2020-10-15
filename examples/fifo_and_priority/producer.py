@@ -31,4 +31,5 @@ else:
 with open("q.txt", "w") as f:
     q = (q+1)%2
     f.write(str(q))
+    f.close()
 
