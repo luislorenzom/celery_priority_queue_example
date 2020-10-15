@@ -1,5 +1,5 @@
 from time import sleep
-from src import celery_app
+from config import celery_app
 
 
 @celery_app.task(name='default', queue='default')

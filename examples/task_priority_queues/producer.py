@@ -1,6 +1,6 @@
 import sys
 
-from src import celery_app
+from config import celery_app
 
 if len(sys.argv) > 0 and sys.argv[1] == 'd':
     t = {'msg': 't2', 'queue': 'default', 'task_name': 'default', 'priority': 1}
